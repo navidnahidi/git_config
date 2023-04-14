@@ -1,0 +1,29 @@
+[alias]
+	st = status
+	p = push
+	ll = log --oneline
+	last = log -1 HEAD --stat
+	cm = commit -m
+	rv = remote -v
+	d = diff
+	dv = difftool -t vimdiff -y
+	gl = config --global -l
+	se = !git rev-list --all | xargs git grep -F
+	co = checkout
+	ci = commit
+	br = branch
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	ga = add 
+	gb = branch
+	gco = checkout
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+[push]
+	default = current
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
